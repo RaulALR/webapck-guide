@@ -5,12 +5,16 @@
   "main": "app.js",
   "scripts": {
     "test": "start",
-    "build": "webpack --watch",
-    "buildprod": "webpack -p --watch"
+    "build": "rm -R dist | webpack --watch",
+    "buildprod": "rm -R dist | webpack -p --watch"
   },
   "author": "Raul Albarran Lopez-Roso",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.20.2",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
   }
 }
