@@ -1,0 +1,16 @@
+{
+  "name": "tutorial_webpack",
+  "version": "1.0.0",
+  "description": "Guia de webpack",
+  "main": "app.js",
+  "scripts": {
+    "test": "start",
+    "build": "webpack --watch",
+    "buildprod": "webpack -p --watch"
+  },
+  "author": "Raul Albarran Lopez-Roso",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  }
+}
