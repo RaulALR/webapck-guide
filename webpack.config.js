@@ -34,21 +34,34 @@ module.exports = {
                     use: ["css-loader", "sass-loader"]
                 })
 
+            },{
+                test: /\.js$/,
+                use: "babel-loader",
+                exclude: /node_modules/
             }
         ],
     },
+    devServer: {
+        contentBase: path.resolve(__dirname, './dist'),
+        compress:true,
+        port: 8080,
+        hot:true
+        // publicPath: 'tutorialWebpack'
+    },
     plugins: [
-        new ExtractTextPlugin("/style.css"), //Fichero donde se creara el css con el plugin
+        new ExtractTextPlugin("style.css"), //Fichero donde se creara el css con el plugin
         new HtmlWebpackPlugin({
             title: 'Tutorial WebPack',
             hash: true,
             //chunk: Sera necesario para hacer saber a la aplicacion por donde entra
-            // template: //Añade nuestro propio template
+            template: "index.html"//Añade nuestro propio template
         }), //Genera automaticamente un html con todas las despendencias referenciadas
         new webpack.optimize.CommonsChunkPlugin({
             name: ['vendor'],
             filename: "vendor.js"
-        }) //Sirve para crear un unico js cuando varias entradas compartan js
+        }), //Sirve para crear un unico js cuando varias entradas compartan js
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
         // extractSCSS
         // extractCSS
     ]
