@@ -5,3 +5,7 @@ node_modules/
 #Packages lock
 package-lock.json
 *package-lock.json
+
+#Dist
+dist
+./dist
