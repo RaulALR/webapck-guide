@@ -4,10 +4,11 @@
   "description": "Guia de webpack",
   "main": "app.js",
   "scripts": {
+    "clean": "rimraf dist",
     "test": "start",
-    "build": "webpack --watch",
-    "start": "webpack-dev-server",
-    "buildprod": "node /webpack/bin/webpack.js -p --watch"
+    "build": "npm run clean | webpack --watch ",
+    "start": "npm run clean | webpack-dev-server",
+    "buildprod": "npm run clean | webpack -p --watch --env.production"
   },
   "author": "Raul Albarran Lopez-Roso",
   "license": "ISC",
@@ -18,7 +19,10 @@
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.7",
+    "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "image-webpack-loader": "^4.1.0",
     "node-sass": "^4.7.2",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
